@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>CoffeeTest</title>
+</head>
+<body>
+<script type="text/javascript" src="PicsLoader.js"></script>
+<script type="text/javascript" src="Ammunition.js"></script>
+<script type="text/javascript" src="Line.js"></script>
+<script type="text/javascript" src="Bullet.js"></script>
+<script type="text/javascript" src="Block.js"></script>
+<script type="text/javascript" src="Person.js"></script>
+<script type="text/javascript" src="Ghost.js"></script>
+<script type="text/javascript" src="Painter.js"></script>
+<script type="text/javascript" src="GameController.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	var gameController;
+
+	init = function () {
+		var canvas;
+		canvas = document.getElementById("canvas");
+		gameController = new GameController(canvas);
+		gameController.init();
+		setInterval(updateGame, 40);
+	};
+
+	function updateGame() {
+		gameController.updateGame();
+	}
+
+	window.onload = init;
+
+	$(window).keydown(function (event) {
+		gameController.processKeyBoardEvent(event.keyCode);
+	});
+</script>
+<canvas id="canvas" height="700" width="700"></canvas>
+</body>
+</html>
